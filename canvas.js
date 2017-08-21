@@ -1,48 +1,70 @@
-let canv = document.getElementById("canv");
-let con = canv.getContext("2d");
-let width = window.innerWidth * 0.8;
-let height = window.innerHeight * 0.8;
-canv.width = width;
-canv.height = height;
-let wrap = document.getElementById("wrap")
-wrap.addEventListener("mousedown", function (e) {
-    let x, y;
-    x = e.pageX;
-    y = e.pageY;
-    con.moveTo(x, y);
-    go = true;
-});
+let canv = document.getElementsByTagName("canvas");
+let con;
+for (var i = 0; i < canv.length; i++) {
+    canv[i].width = 800;
+    canv[i].height = 300;
+}
+let wrap = document.getElementById("wrap");
 wrap.addEventListener("mouseup", function () {
     go = false;
-    let newCanv;
 });
 wrap.addEventListener("mouseover", function () {
     go = false;
 });
-wrap.addEventListener("mousemove", function (e) {
-    if (go) {
+for (var i = 0; i < canv.length; i++) {
+
+    wrap.addEventListener("mousedown", function (e) {
+        newCanv1 = document.createElement("canvas");
+        con22 = newCanv1.getContext("2d");
+        newCanv1.width = 800;
+        newCanv1.height = 300;
+        wrap.insertBefore(newCanv1, canv[0]);
+        if (canv.length >= 20) {
+            con19 = canv[19].getContext("2d");
+            con19.drawImage(canv[18], 0, 0);
+            canv[18].remove()
+        }
         let x, y;
         x = e.pageX;
         y = e.pageY;
-        con.lineTo(x, y);
-        con.stroke();
-    }
-});
-var clear = document.getElementById("clear");
+        con22.moveTo(x, y);
+        go = true;
+    });
+    canv[i].addEventListener("mousemove", function (e) {
+        if (go) {
+            let x, y;
+            x = e.pageX;
+            y = e.pageY;
+            con22.lineTo(x, y);
+            con22.stroke();
+        }
+    });
+}
+
+let clear = document.getElementById("clear");
 clear.addEventListener("mousedown", function () {
-    let widthCanv = canv.width;
-    canv.width = 0;
-    canv.width = widthCanv;
+    console.log(canv);
+    canv[0].remove();
+
 });
-var weight = document.getElementById("weight");
-weight.addEventListener("mouseout", function () {
+let weight = document.getElementById("weight");
+weight.addEventListener("mousedown", function () {
     let select = document.getElementById("select");
     let value = select.options[select.selectedIndex].value;
     con.lineWidth = value;
 });
-var colorDiv = document.getElementById("colorDiv");
-colorDiv.addEventListener("mouseout", function(){
+let colorDiv = document.getElementById("colorDiv");
+colorDiv.addEventListener("mousedown", function () {
     let selectColor = document.getElementById("selectColor");
     let color = selectColor.options[selectColor.selectedIndex].value;
     con.strokeStyle = color;
-})
+});
+let undo = document.getElementById("undo");
+undo.addEventListener("mousedown", function () {
+        canv[0].style.display = "none";
+
+});
+let redo = document.getElementById("redo");
+redo.addEventListener("mousedown", function () {
+        canv[0].style.display = "block";
+});
