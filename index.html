@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CanvasApp</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrapper" id="wrap"><canvas id="canv"></canvas></div>
+<div class="sideSettings">
+    <div class="button" id="clear">Clear</div>
+    <div class="button" id="weight">Pencil weight(px)
+        <select id="select" name="weight">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="5">5</option>
+            <option value="7">7</option>
+            <option value="10">10</option>
+        </select>
+    </div>
+    <div class="button" id ="colorDiv">Pencil color
+        <select id="selectColor" name="color">
+            <option value="black">black</option>
+            <option value="green">green</option>
+            <option value="red">red</option>
+            <option value="yellow">yellow</option>
+            <option value="blue">blue</option>
+        </select>
+    </div>
+</div>
+<script src="canvas.js"></script>
+</body>
+</html>
