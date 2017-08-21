@@ -1,14 +1,9 @@
-let canv = document.getElementsByTagName("canvas");
-let con;
-for (i = 0; i < canv.length; i++){
-    con = canv[i].getContext("2d");
-    let width = 800;
-    let height = 300;
-    canv[i].width = width;
-    canv[i].height = height;
-}
-
-
+let canv = document.getElementById("canv");
+let con = canv.getContext("2d");
+let width = window.innerWidth * 0.8;
+let height = window.innerHeight * 0.8;
+canv.width = width;
+canv.height = height;
 let wrap = document.getElementById("wrap")
 wrap.addEventListener("mousedown", function (e) {
     let x, y;
@@ -19,9 +14,7 @@ wrap.addEventListener("mousedown", function (e) {
 });
 wrap.addEventListener("mouseup", function () {
     go = false;
-    var newCanv = "<canvas width='800' height='300'></canvas>";
-
-    wrap.innerHTML += newCanv;
+    let newCanv;
 });
 wrap.addEventListener("mouseover", function () {
     go = false;
