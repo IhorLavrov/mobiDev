@@ -72,8 +72,6 @@ let contxt, go;
 let canvWidth, canvHeight;
 canvWidth = 800;
 canvHeight = 300;
-
-
 for (var i = 0; i < canv.length; i++) {
     canv[i].width = canvWidth;
     canv[i].height = canvHeight;

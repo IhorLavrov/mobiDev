@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="wrapper" id="wrap"><canvas id="canv"></canvas></div>
+<div class="wrapper" id="wrap">
+    <canvas id="canv"></canvas>
+</div>
 <div class="sideSettings">
     <div class="button" id="clear">Clear</div>
     <div class="button" id="weight">Pencil weight(px)
@@ -18,7 +20,7 @@
             <option value="10">10</option>
         </select>
     </div>
-    <div class="button" id ="colorDiv">Pencil color
+    <div class="button" id="colorDiv">Pencil color
         <select id="selectColor" name="color">
             <option value="black">black</option>
             <option value="green">green</option>
@@ -27,7 +29,9 @@
             <option value="blue">blue</option>
         </select>
     </div>
+    <div class="button" id="undo">Undo</div>
+    <div class="button" id="redo">Redo</div>
 </div>
-<script src="canvas.js"></script>
+<script src="scripts/build.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 module.exports = {
-    entry: './canvas.js',
+    entry: './canvas1.js',
     output: {
         filename: 'build.js'
     }
